@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>raspberry | cc</title>
+  <title>reuse-and-timewait | cc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="主要由两种方式 1. USB方式对接 2. GPIO方式对接 USB 方式对接Arduino 部分将以下代码下载 arduino 中 1234567void setup()&amp;#123;  Serial.begin(9600);&amp;#125;void loop()&amp;#123;  Serial.println(&quot;Hello Pi&quot;);  delay(2000);&amp;#125; 连接方式如图  连接后之后查">
+  <meta name="description" content="server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 这段代码作用是什么？可以把这行代码注掉重新执行下我们的server。 1234567891011121314# server.pyimport socketHOST = &apos;127.0.0.1&apos;PORT = 9595s = socket.socket(socket.AF_INET">
 <meta property="og:type" content="article">
-<meta property="og:title" content="raspberry">
-<meta property="og:url" content="http://yoursite.com/2014/05/19/raspberry/index.html">
+<meta property="og:title" content="reuse-and-timewait">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/reuse-and-timewait/index.html">
 <meta property="og:site_name" content="cc">
-<meta property="og:description" content="主要由两种方式 1. USB方式对接 2. GPIO方式对接 USB 方式对接Arduino 部分将以下代码下载 arduino 中 1234567void setup()&amp;#123;  Serial.begin(9600);&amp;#125;void loop()&amp;#123;  Serial.println(&quot;Hello Pi&quot;);  delay(2000);&amp;#125; 连接方式如图  连接后之后查">
-<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/1.jpg">
-<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/2.jpg">
-<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/3.jpg">
-<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/5.jpg">
-<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/4.jpg">
-<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/6.jpg">
-<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/7.png">
-<meta property="og:updated_time" content="2017-07-30T06:16:39.000Z">
+<meta property="og:description" content="server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 这段代码作用是什么？可以把这行代码注掉重新执行下我们的server。 1234567891011121314# server.pyimport socketHOST = &apos;127.0.0.1&apos;PORT = 9595s = socket.socket(socket.AF_INET">
+<meta property="og:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog-105.png">
+<meta property="og:updated_time" content="2017-08-05T14:30:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="raspberry">
-<meta name="twitter:description" content="主要由两种方式 1. USB方式对接 2. GPIO方式对接 USB 方式对接Arduino 部分将以下代码下载 arduino 中 1234567void setup()&amp;#123;  Serial.begin(9600);&amp;#125;void loop()&amp;#123;  Serial.println(&quot;Hello Pi&quot;);  delay(2000);&amp;#125; 连接方式如图  连接后之后查">
-<meta name="twitter:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/1.jpg">
+<meta name="twitter:title" content="reuse-and-timewait">
+<meta name="twitter:description" content="server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 这段代码作用是什么？可以把这行代码注掉重新执行下我们的server。 1234567891011121314# server.pyimport socketHOST = &apos;127.0.0.1&apos;PORT = 9595s = socket.socket(socket.AF_INET">
+<meta name="twitter:image" content="http://7xkghb.com1.z0.glb.clouddn.com/blog-105.png">
   
     <link rel="alternative" href="/atom.xml" title="cc" type="application/atom+xml">
   
@@ -151,47 +145,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-raspberry" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-reuse-and-timewait" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      raspberry
+      reuse-and-timewait
     </h1>
   
 
         
-        <a href="/2014/05/19/raspberry/" class="archive-article-date">
-  	<time datetime="2014-05-19T14:15:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-05-19</time>
+        <a href="/2016/12/06/reuse-and-timewait/" class="archive-article-date">
+  	<time datetime="2016-12-06T10:27:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>主要由两种方式 1. USB方式对接 2. GPIO方式对接</p>
-<h1 id="USB-方式对接"><a href="#USB-方式对接" class="headerlink" title="USB 方式对接"></a>USB 方式对接</h1><h2 id="Arduino-部分"><a href="#Arduino-部分" class="headerlink" title="Arduino 部分"></a>Arduino 部分</h2><p>将以下代码下载 arduino 中</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">setup</span>()&#123;</div><div class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> <span class="built_in">loop</span>()&#123;</div><div class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Hello Pi"</span>);</div><div class="line">  <span class="built_in">delay</span>(<span class="number">2000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>方式如图</p>
-<p><img src="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/1.jpg" alt="Alt text"></p>
-<p>连接后之后查看是否正确识别</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ls</span> <span class="string">/dev/tty</span>*</div></pre></td></tr></table></figure>
-<p>若列举出 <code>/dev/ttyACM0</code> 文件说明连接成功</p>
-<h2 id="Raspberry-pi-部分"><a href="#Raspberry-pi-部分" class="headerlink" title="Raspberry pi 部分"></a>Raspberry pi 部分</h2><p>首先安装两个库 RPi.GPIO serial<br>安装GPIO 模块<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">wget http:<span class="comment">//raspberry-gpio-python.googlecode.com/files/RPi.GPIO-0.3.1a.tar.gz (下载GPIO库)</span></div><div class="line">tar xvzf RPi<span class="selector-class">.GPIO-0</span>.<span class="number">3.1</span>a<span class="selector-class">.tar</span><span class="selector-class">.gz</span> </div><div class="line">cd RPi<span class="selector-class">.GPIO-0</span>.<span class="number">3.1</span>a </div><div class="line">sudo python setup<span class="selector-class">.py</span> install</div></pre></td></tr></table></figure></p>
-<p>安装serial</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="builtin-name">get</span> install python-serial</div></pre></td></tr></table></figure>
-<p>打开python 交互环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import serial</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; ser = serial.Serial(<span class="string">'/dev/ttyACM0'</span>, 9600)</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="keyword">while</span> 1 :</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;     ser.readline()</span></div></pre></td></tr></table></figure>
-<p>得到如下结果<br> <img src="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/2.jpg" alt="Alt text"></p>
-<h2 id="树莓派向arduino-发送数据"><a href="#树莓派向arduino-发送数据" class="headerlink" title="树莓派向arduino 发送数据"></a>树莓派向arduino 发送数据</h2><p>以下代码下载到arduino<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> ledPin = <span class="number">12</span>;</div><div class="line"><span class="keyword">void</span> <span class="built_in">setup</span>()&#123;</div><div class="line">    <span class="built_in">pinMode</span>(ledPin, <span class="literal">OUTPUT</span>);</div><div class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> <span class="built_in">loop</span>()&#123;</div><div class="line">    <span class="built_in">if</span> (<span class="built_in">Serial</span>.<span class="built_in">available</span>()) &#123;</div><div class="line">    light(<span class="built_in">Serial</span>.<span class="built_in">read</span>() – ‘<span class="number">0</span>’);</div><div class="line">&#125;</div><div class="line"><span class="built_in">delay</span>(<span class="number">500</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> light(<span class="keyword">int</span> n)&#123;</div><div class="line">    <span class="built_in">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">        <span class="built_in">digitalWrite</span>(ledPin, <span class="literal">HIGH</span>);</div><div class="line">        <span class="built_in">delay</span>(<span class="number">100</span>);</div><div class="line">        <span class="built_in">digitalWrite</span>(ledPin, <span class="literal">LOW</span>);</div><div class="line">        <span class="built_in">delay</span>(<span class="number">100</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在树莓派的python 交互环境继续输入\<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;</span>&gt; ser.write(<span class="string">'3'</span>)</div></pre></td></tr></table></figure></p>
-<p>此时你会看到 Arduino Led 灯闪三次<br><img src="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/3.jpg" alt="Alt text"></p>
-<h2 id="GPIO方式"><a href="#GPIO方式" class="headerlink" title="GPIO方式"></a>GPIO方式</h2><p>原理就是 树莓派的pin8(GPIO14) pin10(GPIO15)与Arduion pin0(rx) pin1(tx)的进行对接<br><strong> 千万不要因为缺元件直接用线直连 </strong></p>
-<p>###需要准备的元件<br>GPIO 连接线<br><img src="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/5.jpg" alt="Alt text"><br>GPIO 转接板<br><img src="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/4.jpg" alt="Alt text"></p>
-<p>###实物连接图<br><img src="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/6.jpg" alt="实物连接图"></p>
-<p>###原理说明<br>树莓派引脚图<br><img src="http://7xkghb.com1.z0.glb.clouddn.com/blog/07/7.png" alt="树莓派引脚图"></p>
+        <p><code>server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)</code></p>
+<p>这段代码作用是什么？可以把这行代码注掉重新执行下我们的server。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># server.py</span></div><div class="line">import <span class="built_in">socket</span></div><div class="line"></div><div class="line">HOST = <span class="string">'127.0.0.1'</span></div><div class="line">PORT = <span class="number">9595</span></div><div class="line"></div><div class="line">s = <span class="built_in">socket</span>.<span class="built_in">socket</span>(<span class="built_in">socket</span>.AF_INET, <span class="built_in">socket</span>.SOCK_STREAM)</div><div class="line">s.bind((HOST, PORT))</div><div class="line">s.listen(<span class="number">1</span>)</div><div class="line">conn, addr = s.accept()</div><div class="line">data = conn.recv(<span class="number">1024</span>)</div><div class="line">conn.<span class="built_in">send</span>(data)</div><div class="line">conn.<span class="built_in">close</span>()</div><div class="line">s.<span class="built_in">close</span>()</div></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># client.py</span></div><div class="line">s = <span class="built_in">socket</span>.<span class="built_in">socket</span>(<span class="built_in">socket</span>.AF_INET, <span class="built_in">socket</span>.SOCK_STREAM)</div><div class="line">s.connect((HOST, PORT))</div><div class="line">s.<span class="built_in">close</span>()</div></pre></td></tr></table></figure>
+<p>ctrl+c 关掉后立刻重新再运行。发现报错了 </p>
+<p><code>socket.error: [Errno 48] Address already in use</code>。告知我们这个端口被占用了。这时候第一反应单进程，进程都没了，这个socket肯定被回收了，9595端口自然是空闲没人用了啊。</p>
+<p>netstat 查看下端口占用情况<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">netstat -n|grep <span class="number">9595</span></div><div class="line">tcp4       <span class="number">0</span>      <span class="number">0</span>  <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="number">.9595</span>         <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="number">.52846</span>        TIME_WAIT</div></pre></td></tr></table></figure></p>
+<p>发现确实被占用着，此时状态为TIME_WAIT。</p>
+<p>这就要从四次挥手(4way handshake)开始说起了</p>
+<p>看下四次挥手的过程</p>
+<p><img src="http://7xkghb.com1.z0.glb.clouddn.com/blog-105.png" alt="blog-105.png"><br>四次挥手中，通信的两端发起关闭的成为主动方，另一端成为被动方。<br>首先为什么要四次挥手？三次握手这个很简单，因为要确保我知道你知道我知道<br>四次原因是，因为tcp 是双全工，意思是在发送数据的同时也能接收数据。因此要双向关闭</p>
+<p>client向server发送关闭请求，表示client不再发送数据，server响应(server 不能read)。此时server端仍然可以向client发送数据(server可以write)，待server端发送数据结束后，就向client发送关闭请求，然后client确认。</p>
+<p>可以看到主动发起关闭那一方在真正close前还需要等待 <code>TIME_WAIT</code> 时间。</p>
+<p>为什么要等待<code>TIME_WAIT</code>？<br>主要有两个原因</p>
+<ol>
+<li><p>实现可靠的连接中止<br>TCP 有四个报文，最后一个ACK是从执行主动关闭一方发往被动关闭一方。假设此ack丢失，被动关闭一方没收到ACK(一个MSL)，会重发一个FIN(一个MSL)，此时主动关闭方处于TIME_WAIT等待则可以收到FIN后重发ACK。因此一个TIME_WAIT时间等于2MSL，一个MSL留给ACK到达被动关闭方的时间，另一个留给超时重发MSL到达主动关闭方的时间。</p>
+</li>
+<li><p>让老的重复的报文段在网络中过期失效<br>如果旧的连接没有等待TIME_WAIT时间直接关闭了，如果有某些旧报文超时而后触发重传，这时立刻重新server依旧bind 原端口，那么上一次遗留的旧报文则会被新的socket接收。</p>
+<p>socket可以使用SO_REUSEADDR来避免这种情况</p>
+</li>
+</ol>
+<p>计算一下TIME_WAIT的时间</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># server.py</span></div><div class="line">import <span class="keyword">socket</span></div><div class="line">import <span class="keyword">time</span></div><div class="line"></div><div class="line">HOST = <span class="string">'127.0.0.1'</span></div><div class="line">PORT = <span class="number">9333</span></div><div class="line"></div><div class="line">s = <span class="keyword">socket</span>.<span class="keyword">socket</span>(<span class="keyword">socket</span>.AF_INET, <span class="keyword">socket</span>.SOCK_STREAM)</div><div class="line">s.bind((HOST, PORT))</div><div class="line">s.listen(<span class="number">1</span>)</div><div class="line">conn, addr = s.accept()</div><div class="line">conn.<span class="keyword">close</span>()</div><div class="line">s.<span class="keyword">close</span>()</div><div class="line">t1 = <span class="keyword">time</span>.<span class="keyword">time</span>()</div><div class="line"></div><div class="line"><span class="keyword">while</span> True:</div><div class="line">    try:</div><div class="line">        newserver = <span class="keyword">socket</span>.<span class="keyword">socket</span>(<span class="keyword">socket</span>.AF_INET, <span class="keyword">socket</span>.SOCK_STREAM)</div><div class="line">        newserver.bind((HOST, PORT))</div><div class="line">    except <span class="keyword">socket</span>.<span class="keyword">error</span> as e:</div><div class="line">        print e</div><div class="line">        <span class="keyword">continue</span></div><div class="line"></div><div class="line">    newserver.<span class="keyword">close</span>()</div><div class="line">    t2 = <span class="keyword">time</span>.<span class="keyword">time</span>()</div><div class="line">    <span class="keyword">break</span></div><div class="line"></div><div class="line">print(t2-t1)</div></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># client.py</span></div><div class="line">import <span class="built_in">socket</span></div><div class="line">HOST = <span class="string">'127.0.0.1'</span></div><div class="line">PORT = <span class="number">9333</span></div><div class="line"></div><div class="line">s = <span class="built_in">socket</span>.<span class="built_in">socket</span>(<span class="built_in">socket</span>.AF_INET, <span class="built_in">socket</span>.SOCK_STREAM)</div><div class="line">s.connect((HOST, PORT))</div><div class="line">s.recv(<span class="number">1024</span>)</div><div class="line">s.<span class="built_in">close</span>()</div></pre></td></tr></table></figure>
+<p>客户端client 连接后 recv 阻塞， 服务端server accept之后立马close，成为主动关闭方，计下此时时间t1<br>重新建立新链接，因为处于TIME_WAIT， 再次bind 会报错，catch住，while循环直到不报错为止。记下此时时间t2，t2-t1算下时间差<br>30.4251639843秒</p>
+<p><code>sysctl net.inet.tcp</code>看下msl数值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.always_keepalive</span>: 0</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.max_persist_timeout</span>: 0</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.msl</span>: 15000   # <span class="selector-tag">MSL</span> 数值</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.keepcnt</span>: 8</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.cc_debug</span>: 0</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.newreno_sockets</span>: 0</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.background_sockets</span>: 2</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.cubic_sockets</span>: 1206</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.use_newreno</span>: 0</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.cubic_use_minrtt</span>: 0</div><div class="line"><span class="selector-tag">net</span><span class="selector-class">.inet</span><span class="selector-class">.tcp</span><span class="selector-class">.cubic_fast_c</span></div></pre></td></tr></table></figure>
+<p>15000ms * 2 =30 s跟我们的结果一致</p>
+<p>这个时间跟操作系统不同而不同，并不一定都是这个数值</p>
 
       
 
@@ -276,7 +278,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2014/05/19/raspberry/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/12/06/reuse-and-timewait/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,15 +292,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2015/02/21/a-pixel-is-not-a-pixel/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/01/closewait/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          究竟是哪个像素
+          closewait
         
       </div>
     </a>
   
+  
+    <a href="/2016/11/05/python-closure/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入理解装饰器闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
