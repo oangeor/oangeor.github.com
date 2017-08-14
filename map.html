@@ -35,6 +35,24 @@
 
 <script>
 
+    var os = function () {
+        var ua = navigator.userAgent,
+                isWindowsPhone = /(?:Windows Phone)/.test(ua),
+                isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+                isAndroid = /(?:Android)/.test(ua),
+                isFireFox = /(?:Firefox)/.test(ua),
+                isChrome = /(?:Chrome|CriOS)/.test(ua),
+                isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+                isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+                isPc = !isPhone && !isAndroid && !isSymbian;
+        return {
+            isTablet: isTablet,
+            isPhone: isPhone,
+            isAndroid: isAndroid,
+            isPc: isPc
+        };
+    }();
+
 
     var imgs = [
         "12.9473525,100.8876009.jpg",
@@ -71,16 +89,22 @@
     var mapObj = null;
     var cluster, markers = [];
     mapObj = new AMap.Map("iCenter", {center: new AMap.LngLat(105.505859, 30.371244), resizeEnable: true, zoom: 5});
+    //    mapObj = new AMap.Map("iCenter", {center: new AMap.LngLat(105.505859, 30.371244), resizeEnable: true, zoom: 5});
+    if (os.isAndroid || os.isPhone) {
+        mapObj.setCenter(new AMap.LngLat(117.316933, 31.88513));
+    }
 
-    mapObj.clearMap();
-    var mapBounds = mapObj.getBounds();
-    var sw = mapBounds.getSouthWest();
-    var ne = mapBounds.getNorthEast();
-    var lngSpan = Math.abs(sw.lng - ne.lng);
-    var latSpan = Math.abs(ne.lat - sw.lat);
+//    mapObj.plugin(["AMap.ToolBar"], function () { var tool = new AMap.ToolBar({position:"LT"}); tool.show();mapObj.addControl(tool); });
+
+        mapObj.clearMap();
+        var mapBounds = mapObj.getBounds();
+        var sw = mapBounds.getSouthWest();
+        var ne = mapBounds.getNorthEast();
+        var lngSpan = Math.abs(sw.lng - ne.lng);
+        var latSpan = Math.abs(ne.lat - sw.lat);
 
 
-    for (var i = 0; i < imgs.length; i++) {
+        for (var i = 0; i < imgs.length; i++) {
 //        var markerPosition = new AMap.LngLat(result.markers[i].lng, result.markers[i].lat);
 //        if (result.markers[i].url.length < 60) {
 //            var marker = new AMap.Marker({
@@ -98,55 +122,57 @@
 //                content: '<img src="' + result.markers[i].url +'?imageView2/2/w/100/h/100' +'" />',
 //            });
 //        }
-        var img = imgs[i];
-        var latlng = img.slice(0, -4).split(",");
-        var markerPosition = new AMap.LngLat(latlng[1], latlng[0]);
-        var marker = new AMap.Marker({
-            map: mapObj,
-            position: markerPosition, //基点位置
-            content: '<img src="' + 'http://oujyr3c1x.bkt.clouddn.com/map-' + img + '?imageView2/2/w/100/h/100' + '" />',
-        });
+            var img = imgs[i];
+            var latlng = img.slice(0, -4).split(",");
+            var markerPosition = new AMap.LngLat(latlng[1], latlng[0]);
+            var marker = new AMap.Marker({
+                map: mapObj,
+                position: markerPosition, //基点位置
+                content: '<img src="' + 'http://oujyr3c1x.bkt.clouddn.com/map-' + img + '?imageView2/2/w/100/h/100' + '" />',
+                url:'http://oujyr3c1x.bkt.clouddn.com/map-' + img + '?imageView2/2/w/100/h/100'
+            });
 
-        markers.push(marker);
-    }
-    addCluster(1);
-    function addCluster(tag) {
-        if (cluster) {
-            cluster.setMap(null);
+            markers.push(marker);
         }
-        if (tag == 1) {
-            var sts = [
-                {
-                    url: "map-images/1.png",
-                    size: new AMap.Size(74, 75),
-                    offset: new AMap.Pixel(-16, -30),
-                    textColor: '#ffffff',
-                    textSize: 20
-                },
-                {
-                    url: "map-images/2.png",
-                    size: new AMap.Size(74, 75),
-                    offset: new AMap.Pixel(-16, -30),
-                    textColor: '#ffffff',
-                    textSize: 20
-                },
-                {
-                    url: "../img/map/set/3.png",
-                    size: new AMap.Size(74, 75),
-                    offset: new AMap.Pixel(-24, -45),
-                    textColor: '#ffffff',
-                    textSize: 20
-                }];
-            mapObj.plugin(["AMap.MarkerClusterer"], function () {
-                cluster = new AMap.MarkerClusterer(mapObj, markers, {minClusterSize: 2, gridSize: 80, styles: sts});
-            });
+        addCluster(1);
+        function addCluster(tag) {
+            if (cluster) {
+                cluster.setMap(null);
+            }
+            if (tag == 1) {
+                var sts = [
+                    {
+                        url: "map-images/1.png",
+//                        url:markers[0].  'http://oujyr3c1x.bkt.clouddn.com/map-' + img + '?imageView2/2/w/100/h/100'
+                        size: new AMap.Size(74, 75),
+                        offset: new AMap.Pixel(-16, -30),
+                        textColor: '#ffffff',
+                        textSize: 20
+                    },
+                    {
+                        url: "map-images/2.png",
+                        size: new AMap.Size(74, 75),
+                        offset: new AMap.Pixel(-16, -30),
+                        textColor: '#ffffff',
+                        textSize: 20
+                    },
+                    {
+                        url: "../img/map/set/3.png",
+                        size: new AMap.Size(74, 75),
+                        offset: new AMap.Pixel(-24, -45),
+                        textColor: '#ffffff',
+                        textSize: 20
+                    }];
+                mapObj.plugin(["AMap.MarkerClusterer"], function () {
+                    cluster = new AMap.MarkerClusterer(mapObj, markers, {minClusterSize: 2, gridSize: 60, styles: sts});
+                });
+            }
+            else {
+                mapObj.plugin(["AMap.MarkerClusterer"], function () {
+                    cluster = new AMap.MarkerClusterer(mapObj, markers);
+                });
+            }
         }
-        else {
-            mapObj.plugin(["AMap.MarkerClusterer"], function () {
-                cluster = new AMap.MarkerClusterer(mapObj, markers);
-            });
-        }
-    }
 
 </script>
 
